@@ -1,0 +1,214 @@
+.medical-declaration {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e8e8e8;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #f0f0f0;
+
+        .icon {
+            color: #e74c3c;
+            font-size: 18px;
+        }
+
+        h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .declaration-date {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-style: italic;
+        }
+    }
+
+    &__loading {
+        text-align: center;
+        padding: 40px 20px;
+        color: #7f8c8d;
+        font-style: italic;
+    }
+
+    &__error {
+        text-align: center;
+        padding: 20px;
+        color: #e74c3c;
+        background: #fdf2f2;
+        border-radius: 8px;
+        border: 1px solid #f5c6cb;
+    }
+
+    &__empty {
+        text-align: center;
+        padding: 30px 20px;
+        color: #7f8c8d;
+        font-style: italic;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px dashed #dee2e6;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.declaration-item {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 14px;
+
+        .icon {
+            color: #3498db;
+            font-size: 16px;
+        }
+    }
+
+    &__value {
+        color: #34495e;
+        line-height: 1.5;
+        margin-left: 24px;
+
+        &.pregnant {
+            color: #e91e63;
+            font-weight: 600;
+        }
+
+        &.not-pregnant {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        &.allergy {
+            background: #fff3cd;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            font-weight: 500;
+        }
+
+        .emergency-contact,
+        .emergency-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+
+            .icon {
+                color: #e74c3c;
+                font-size: 14px;
+            }
+        }
+
+        .emergency-phone {
+            font-weight: 600;
+            color: #e74c3c;
+        }
+    }
+}
+
+// Specific styling for different declaration types
+.declaration-item {
+    // Pregnancy status
+    &:has(.pregnant) {
+        border-left-color: #e91e63;
+        
+        .declaration-item__label .icon {
+            color: #e91e63;
+        }
+    }
+
+    // Health notes
+    &:has([class*="health"]) {
+        border-left-color: #3498db;
+    }
+
+    // Symptoms
+    &:has([class*="symptom"]) {
+        border-left-color: #f39c12;
+    }
+
+    // Medications
+    &:has([class*="medication"]) {
+        border-left-color: #9b59b6;
+        
+        .declaration-item__label .icon {
+            color: #9b59b6;
+        }
+    }
+
+    // Allergies
+    &:has(.allergy) {
+        border-left-color: #e67e22;
+        background: #fef9e7;
+        
+        .declaration-item__label .icon {
+            color: #e67e22;
+        }
+    }
+
+    // Emergency contact
+    &:has(.emergency-contact) {
+        border-left-color: #e74c3c;
+        
+        .declaration-item__label .icon {
+            color: #e74c3c;
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .medical-declaration {
+        padding: 15px;
+        margin-bottom: 15px;
+
+        &__header {
+            h3 {
+                font-size: 16px;
+            }
+
+            .declaration-date {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .declaration-item {
+        padding: 12px;
+
+        &__label {
+            font-size: 13px;
+        }
+
+        &__value {
+            font-size: 14px;
+            margin-left: 20px;
+        }
+    }
+}

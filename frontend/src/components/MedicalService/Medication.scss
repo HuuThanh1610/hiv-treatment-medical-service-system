@@ -1,0 +1,595 @@
+.medication-page {
+    margin-top: 80px;
+    background-color: #f9f9f9;
+    padding: 2rem 5%;
+    font-family: 'Arial', sans-serif;
+
+    .back-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #555;
+        margin-bottom: 2rem;
+        cursor: pointer;
+    }
+
+    .medication-header {
+        margin-bottom: 2rem;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #666;
+        }
+    }
+
+    .medication-tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 2rem;
+        background: #fff;
+        border-radius: 8px;
+        padding: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+        button {
+            padding: 1rem 1.5rem;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #666;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+
+            &.active {
+                background-color: #f0f0f0;
+                color: #333;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                font-weight: bold;
+            }
+        }
+    }
+
+    .medication-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .medication-card {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            .date-display {
+                background-color: #f0f0f0;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .schedule-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .time-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .icon {
+                font-size: 1.5rem;
+                color: #888;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                strong {
+                    font-size: 1.1rem;
+                }
+
+                span {
+                    color: #777;
+                }
+            }
+        }
+
+        .status-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .status {
+                font-weight: bold;
+
+                &.not-taken {
+                    color: #ffa500;
+                }
+
+                &.not-yet {
+                    color: #888;
+                }
+
+                &.taken {
+                    color: #28a745;
+                }
+            }
+
+            .action-btn {
+                background-color: transparent;
+                border: 1px solid #ccc;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+                color: #333;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+
+                &.taken {
+                    background-color: #28a745;
+                    color: #fff;
+                    border-color: #28a745;
+                }
+            }
+        }
+    }
+
+    .compliance-stat {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        span:first-child {
+            width: 100px;
+        }
+
+        .progress-bar-container {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+
+            .progress-bar {
+                height: 100%;
+                background-color: #333;
+                border-radius: 6px;
+            }
+        }
+    }
+
+    .login-prompt {
+        font-style: italic;
+        color: #888;
+        margin-top: 1.5rem;
+    }
+
+    .med-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+
+        .med-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .icon {
+                font-size: 1.5rem;
+                color: #888;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                strong {
+                    font-size: 1.1rem;
+                }
+
+                span {
+                    color: #777;
+                }
+            }
+        }
+
+        .med-count {
+            background-color: #333;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+        }
+    }
+
+    .login-box {
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+
+    .btn-primary {
+        background-color: #333;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+            background-color: #555;
+        }
+    }
+
+    .btn-secondary {
+        background-color: #fff;
+        color: #333;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+
+    .appointment-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        .icon {
+            font-size: 2rem;
+            color: #888;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            strong {
+                font-size: 1.2rem;
+            }
+
+            span {
+                color: #666;
+                margin-top: 0.25rem;
+            }
+        }
+    }
+
+    .reminder-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+
+        .reminder-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .icon {
+                font-size: 1.5rem;
+                color: #888;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                strong {
+                    font-size: 1.1rem;
+                }
+
+                span {
+                    color: #777;
+                }
+            }
+        }
+    }
+
+    .reminder-note {
+        font-style: italic;
+        color: #888;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    ul {
+        list-style-position: inside;
+        padding-left: 0.5rem;
+
+        li {
+            margin-bottom: 0.75rem;
+            color: #555;
+        }
+    }
+
+}
+
+.treatment-plan-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 0 40px 0;
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #13c2c2;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  .error-message {
+    color: #ff4d4f;
+    background: #fff0f0;
+    border: 1px solid #ffccc7;
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-bottom: 18px;
+    text-align: center;
+    font-weight: 500;
+  }
+  > div {
+    text-align: center;
+    color: #888;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+  }
+}
+
+.treatment-plan-card {
+  border: 1.5px solid #00bcd4;
+  border-radius: 12px;
+  background: #fff;
+  margin-bottom: 24px;
+  padding: 24px 32px 20px 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.plan-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.plan-dates {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 1.15rem;
+  color: #2196f3;
+  font-weight: 500;
+}
+
+.plan-status {
+  display: inline-block;
+  border: 1.5px solid #00bfae;
+  color: #00bfae;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-right: 16px;
+}
+
+.med-schedule-btn {
+  border: 1.5px solid #90caf9 !important;
+  color: #1976d2 !important;
+  background: #f7faff !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  font-size: 1.05rem !important;
+  padding: 6px 18px !important;
+  transition: background 0.2s;
+}
+.med-schedule-btn:hover {
+  background: #e3f2fd !important;
+}
+
+.plan-info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.plan-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 320px;
+}
+
+.plan-label {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.08rem;
+  min-width: 120px;
+  display: inline-block;
+}
+
+.plan-value {
+  color: #222;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.plan-days {
+  color: #888;
+  font-size: 0.98rem;
+  margin-left: 8px;
+}
+
+.modal-content {
+  min-width: 600px !important;
+  max-width: 900px;
+  padding: 40px 40px 32px 40px !important;
+  border-radius: 16px !important;
+}
+
+.modal-content table {
+  font-size: 1.12rem;
+}
+
+.modal-content th, .modal-content td {
+  font-size: 1.08rem;
+}
+
+.modal-content th {
+  white-space: nowrap;
+  min-width: 110px;
+  background: #f7f8fa;
+  font-weight: bold;
+  text-align: left;
+  padding: 14px 12px;
+  color: #2d3748;
+  font-size: 1.08rem;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+.modal-content th:first-child {
+  min-width: 160px;
+}
+.modal-content td {
+  padding: 12px 12px;
+  color: #2d3748;
+  font-size: 1.05rem;
+  border-bottom: 1px solid #f1f1f1;
+  background: #fff;
+}
+.modal-content tr:last-child td {
+  border-bottom: none;
+}
+.modal-content tr {
+  transition: background 0.18s;
+}
+.modal-content tbody tr:hover {
+  background: #f6faff;
+}
+
+.plan-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.plan-info-table td {
+  padding: 6px 0;
+  vertical-align: top;
+}
+
+.plan-info-table .plan-label {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.08rem;
+  min-width: 120px;
+  width: 140px;
+  text-align: left;
+  padding-right: 8px;
+}
+
+.plan-info-table .plan-value {
+  color: #222;
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-align: left;
+  padding-right: 32px;
+}
+
+/* Tab Navigation for PatientMedication */
+.treatment-plan-list {
+    .tab-navigation {
+        display: flex;
+        margin-bottom: 24px;
+        border-bottom: 2px solid #e9ecef;
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6c757d;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                color: #007bff;
+                background: rgba(0, 123, 255, 0.05);
+            }
+            
+            &.active {
+                color: #007bff;
+                border-bottom-color: #007bff;
+                background: rgba(0, 123, 255, 0.1);
+            }
+        }
+    }
+
+    .tab-content {
+        margin-top: 20px;
+    }
+}

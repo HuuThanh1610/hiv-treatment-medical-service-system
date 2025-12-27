@@ -1,0 +1,28 @@
+.sidebar-menu {
+
+    width: 240px;
+    background: #ffffff;
+    border-right: 1px solid #e0e0e0;
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        cursor: pointer;
+        color: #4a4a4a;
+
+        &:hover {
+            background: #f0f4f8;
+        }
+
+        &.active {
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: 600;
+        }
+
+        .icon {
+            margin-right: 0.75rem;
+        }
+    }
+}

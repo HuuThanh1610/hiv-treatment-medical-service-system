@@ -1,0 +1,24 @@
+package com.group7.hivcare.hivtreatmentmedicalservicesystem.common.repository;
+
+import com.group7.hivcare.hivtreatmentmedicalservicesystem.common.entity.Payment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface PaymentRepository extends JpaRepository<Payment, Integer> {
+    Optional<Payment> findByAppointmentId(Integer appointmentId);
+
+    Optional<Payment> findByLabRequestId(Integer labRequestId);
+
+    List<Payment> findByPatientId(Integer patientId);
+
+    Optional<Payment> findByTransactionCode(String transactionCode);
+    
+    @Query("SELECT COALESCE(SUM(p.amount), 0.0) FROM Payment p WHERE p.status = 'PAID'")
+    Double getTotalPaidRevenue();
+}

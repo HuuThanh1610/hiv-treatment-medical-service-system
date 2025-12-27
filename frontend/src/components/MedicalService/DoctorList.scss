@@ -1,0 +1,325 @@
+.doctor-list-page {
+    background-color: #f9f9f9;
+    padding: 2rem 5%;
+    font-family: 'Arial', sans-serif;
+    margin-top: 80px;
+
+    .back-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #555;
+        margin-bottom: 2rem;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #333;
+        }
+    }
+
+    .doctor-list-header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .search-filters {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+
+            .search-icon {
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #888;
+                font-size: 1.1rem;
+            }
+
+            input {
+                width: 100%;
+                padding: 1rem 1rem 1rem 3rem;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    outline: none;
+                    border-color: #4A90E2;
+                }
+
+                &::placeholder {
+                    color: #999;
+                }
+            }
+        }
+
+        .specialty-filter {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: white;
+            min-width: 200px;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+                border-color: #4A90E2;
+            }
+        }
+    }
+
+    .doctors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .doctor-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .doctor-header {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+
+            .doctor-icon {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                background-color: #4A90E2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 3rem;
+                border: 4px solid #f0f0f0;
+            }
+
+            .doctor-info {
+                flex: 1;
+
+                h3 {
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                    color: #333;
+                }
+
+                .specialty {
+                    color: #4A90E2;
+                    font-weight: 600;
+                    margin-bottom: 0.25rem;
+                }
+
+                .qualifications {
+                    color: #666;
+                    font-size: 0.9rem;
+                    margin-bottom: 0.75rem;
+                }
+            }
+        }
+
+        .doctor-details {
+            margin-bottom: 1.5rem;
+
+            .description {
+                color: #555;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-info {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+
+                .contact-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: #666;
+                    font-size: 0.9rem;
+
+                    .icon {
+                        color: #4A90E2;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .additional-info {
+                background-color: #f8f9fa;
+                padding: 1rem;
+                border-radius: 8px;
+
+                .info-item {
+                    margin-bottom: 0.5rem;
+                    font-size: 0.9rem;
+                    color: #555;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    strong {
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+        .doctor-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            button {
+                flex: 1;
+                min-width: 140px;
+                padding: 0.75rem 1.5rem;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+                border: none;
+                font-size: 0.9rem;
+
+                &.btn-primary {
+                    background-color: #4A90E2;
+                    color: white;
+
+                    &:hover {
+                        background-color: #357ABD;
+                    }
+                }
+
+                &.btn-secondary {
+                    background-color: white;
+                    color: #4A90E2;
+                    border: 2px solid #4A90E2;
+
+                    &:hover {
+                        background-color: #4A90E2;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .no-results {
+        text-align: center;
+        padding: 3rem;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background-color: #4A90E2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #357ABD;
+            }
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .doctor-list-page {
+        padding: 1rem 3%;
+
+        .doctor-list-header {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .search-filters {
+            flex-direction: column;
+
+            .search-box {
+                min-width: auto;
+            }
+        }
+
+        .doctors-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .doctor-card {
+            padding: 1.5rem;
+
+            .doctor-header {
+                flex-direction: column;
+                text-align: center;
+
+                .doctor-icon {
+                    align-self: center;
+                }
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .doctor-actions {
+                flex-direction: column;
+
+                button {
+                    min-width: auto;
+                }
+            }
+        }
+    }
+}

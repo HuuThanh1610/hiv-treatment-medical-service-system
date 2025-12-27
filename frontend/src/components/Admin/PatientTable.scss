@@ -1,0 +1,193 @@
+.patient-table {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 260px;
+}
+
+.add-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background: #45a049;
+}
+
+.patient-table table {
+    width: 100%;
+    min-width: 1000px; /* Minimum width to ensure all columns are visible */
+    border-collapse: collapse;
+    background: #fff;
+    table-layout: fixed;
+}
+
+.patient-table th,
+.patient-table td {
+    padding: 0.75rem 1rem;
+    border: none;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.patient-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+.patient-table th:hover {
+    background: #e9ecef;
+}
+
+.patient-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Actions Column */
+.actions-column {
+    position: sticky;
+    right: 0;
+    background: #f5f5f5;
+    z-index: 10;
+    min-width: 160px !important;
+    width: 160px !important;
+}
+
+.actions-cell {
+    position: sticky;
+    right: 0;
+    background: white;
+    z-index: 9;
+    padding: 8px !important;
+    border-left: 1px solid #e0e0e0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+}
+
+.edit-button,
+.toggle-active-btn {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+}
+
+.edit-button {
+    background: #2196F3;
+    color: white;
+
+    &:hover {
+        background: #1976D2;
+        transform: translateY(-1px);
+    }
+}
+
+.toggle-active-btn {
+    background: transparent;
+    border: 1px solid transparent;
+
+    &.active {
+        color: #4caf50;
+        &:hover {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+    }
+
+    &.inactive {
+        color: #757575;
+        &:hover {
+            background: #f5f5f5;
+            border-color: #757575;
+        }
+    }
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+// Style cho badge ẩn danh
+.anonymous-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+
+    &.active {
+        background-color: #e8f5e8;
+        color: #2e7d32;
+        border: 1px solid #4caf50;
+    }
+
+    &.inactive {
+        background-color: #f3f4f6;
+        color: #6b7280;
+        border: 1px solid #d1d5db;
+    }
+}

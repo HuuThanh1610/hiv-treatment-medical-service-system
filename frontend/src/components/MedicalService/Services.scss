@@ -1,0 +1,231 @@
+.services-page {
+    background: #fafafa;
+    padding-bottom: 40px;
+}
+
+.services-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+
+    .services-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .services-desc {
+        font-size: 1.25rem;
+        margin-bottom: 32px;
+        color: #e0e0e0;
+    }
+
+    .services-actions {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+.service-btn {
+    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 180, 219, 0.3);
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+    text-transform: none;
+    letter-spacing: 0.5px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    &:hover::before {
+        left: 100%;
+    }
+
+    &.secondary {
+        background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+        color: #fff;
+        border: 2px solid transparent;
+    }
+
+    &.small {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        border-radius: 25px;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, #0099cc 0%, #006b96 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 180, 219, 0.4);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 180, 219, 0.3);
+    }
+
+    &.secondary:hover {
+        background: linear-gradient(135deg, #0099cc 0%, #006b96 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 180, 219, 0.4);
+    }
+}
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 60px 10vw 40px;
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    flex-direction: row;
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .image {
+        flex: 1;
+        max-width: 50%;
+
+        img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+
+        .service-label {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #333;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        h2 {
+            display: flex;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        p {
+            display: flex;
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 24px;
+
+            li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 16px;
+
+                svg {
+                    color: #007bff;
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+
+                div {
+                    strong {
+                        font-weight: 600;
+                        color: #111;
+                        display: block;
+                        margin-bottom: 4px;
+                    }
+
+                    span {
+                        font-size: 0.95rem;
+                        color: #666;
+                    }
+                }
+            }
+        }
+
+        button {
+            align-self: flex-start;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .services-hero {
+        padding: 40px 10px 24px;
+
+        .services-title {
+            font-size: 2.1rem;
+        }
+    }
+
+    .services-list .service-card {
+        flex-direction: column;
+
+        .image,
+        .content {
+            max-width: 100%;
+        }
+
+        .content {
+            text-align: center;
+
+            ul li {
+                justify-content: center;
+                text-align: left;
+            }
+
+            button {
+                align-self: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,233 @@
+.payment-success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.payment-success-modal {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-header {
+    text-align: center;
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.success-icon {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    
+    svg {
+        animation: checkmarkPop 0.6s ease-out 0.2s both;
+    }
+}
+
+.modal-header h2 {
+    color: #065f46;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+}
+
+.modal-header p {
+    color: #6b7280;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.modal-body {
+    padding: 1.5rem 2rem;
+}
+
+.payment-details {
+    margin-bottom: 1.5rem;
+    
+    h3 {
+        color: #374151;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e5e7eb;
+    }
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.detail-row .label {
+    font-weight: 500;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.detail-row .value {
+    font-weight: 600;
+    color: #374151;
+    text-align: right;
+    
+    &.amount {
+        color: #dc2626;
+        font-size: 1.1rem;
+    }
+    
+    &.status-paid {
+        color: #10b981;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+        background-color: #d1fae5;
+        border-radius: 4px;
+    }
+}
+
+.next-steps {
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+    
+    h4 {
+        color: #374151;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+    }
+    
+    ul {
+        margin: 0;
+        padding-left: 1.25rem;
+        
+        li {
+            color: #6b7280;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 0.25rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.modal-footer {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    
+    button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &.btn-primary {
+            background-color: #3b82f6;
+            color: white;
+            
+            &:hover {
+                background-color: #2563eb;
+                transform: translateY(-1px);
+            }
+        }
+        
+        &.btn-secondary {
+            background-color: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            
+            &:hover {
+                background-color: #e5e7eb;
+                transform: translateY(-1px);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .payment-success-modal {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        
+        button {
+            width: 100%;
+        }
+    }
+}

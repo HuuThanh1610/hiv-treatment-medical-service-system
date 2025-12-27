@@ -1,0 +1,47 @@
+.appointment-management-tabs {
+    .custom-tabs-header {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 18px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 8px 8px 8px 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border: 1.5px solid #e5e7eb;
+        width: fit-content;
+    }
+
+    .custom-tab-btn {
+        padding: 10px 32px;
+        border: none;
+        background: #fff;
+        color: #222;
+        font-size: 1.08rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s;
+        border: 1.5px solid transparent;
+    }
+
+    .custom-tab-btn:hover:not(.active) {
+        background: #e3f0fd;
+        color: #1976d2;
+    }
+
+    .custom-tab-btn.active {
+        background: #1976d2;
+        color: #fff;
+        border: 1.5px solid #1976d2;
+        font-weight: 700;
+        box-shadow: 0 2px 8px #1976d220;
+    }
+
+    .tabs-content {
+        background: #fff;
+        border-radius: 0 6px 6px 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        padding: 24px 16px 16px 16px;
+        margin-top: 0;
+    }
+}

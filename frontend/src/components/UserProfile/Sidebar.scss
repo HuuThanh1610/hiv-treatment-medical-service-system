@@ -1,0 +1,139 @@
+.sidebar {
+  position: fixed;
+  top: 100px;
+  left: 10px;
+  width: 200px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  transition: 0.3s;
+  z-index: 100;
+
+  &__header {
+    padding: 16px;
+    background-color: #f3faff;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #e0e0e0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__user-details {
+    h3 {
+      font-size: 12px;
+      color: #888;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2d2d2d;
+      margin: 4px 0 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+  }
+
+  &__menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border-left: 4px solid transparent;
+
+    &:hover {
+      background-color: #f3faff;
+    }
+
+    &.active {
+      background-color: #e0f2ff;
+      color: #0277bd;
+      font-weight: 600;
+      border-left: 4px solid #039be5;
+    }
+  }
+
+  &__menu-icon {
+    font-size: 16px;
+    width: 18px;
+    text-align: center;
+    color: #0277bd;
+  }
+
+  &__menu-label {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+
+    &__menu {
+      flex-direction: row;
+      overflow-x: auto;
+      border-top: 1px solid #eee;
+    }
+
+    &__menu-item {
+      flex-direction: column;
+      align-items: center;
+      min-width: 100px;
+      padding: 12px 6px;
+      gap: 4px;
+      font-size: 12px;
+
+      &.active {
+        background-color: #e0f2ff;
+        border-left: none;
+        border-bottom: 3px solid #039be5;
+      }
+    }
+
+    &__menu-label {
+      font-size: 12px;
+    }
+  }
+}

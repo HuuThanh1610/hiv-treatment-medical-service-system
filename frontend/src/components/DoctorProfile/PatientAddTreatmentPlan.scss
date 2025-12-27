@@ -1,0 +1,348 @@
+.add-treatment-plan-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-treatment-plan-modal {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 800px; // Increased width for medication section
+  width: 95vw;
+  padding: 32px 28px 24px 28px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  position: relative;
+  animation: fadeIn .2s;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    margin: 0 0 18px 0;
+    color: #13c2c2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+.add-treatment-plan-form {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    label {
+      font-weight: 600;
+      color: #333;
+      font-size: 15px;
+      .required { color: #ff4d4f; }
+    }
+    input, select, textarea {
+      padding: 10px 12px;
+      border-radius: 7px;
+      border: 1.5px solid #e0e0e0;
+      font-size: 15px;
+      background: #f8fafd;
+      transition: border 0.2s;
+      &:focus {
+        border: 1.5px solid #13c2c2;
+        outline: none;
+        background: #fff;
+      }
+    }
+    textarea {
+      resize: vertical;
+      min-height: 38px;
+      max-height: 120px;
+    }
+  }
+  .form-row {
+    display: flex;
+    gap: 16px;
+    > .form-group { flex: 1; }
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  .form-error {
+    color: #ff4d4f;
+    background: #fff1f0;
+    border: 1px solid #ffccc7;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 15px;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .form-success {
+    color: #389e0d;
+    background: #f6ffed;
+    border: 1px solid #b7eb8f;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 15px;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  // Medications section styling
+  .medications-section {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fafafa;
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      h3 {
+        margin: 0;
+        color: #333;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .btn-add-medication {
+        background: #52c41a;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        &:hover { background: #389e0d; }
+      }
+    }
+
+    .medication-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 16px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      align-items: end;
+
+      .medication-fields {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 80px 1.5fr;
+        gap: 12px;
+
+        .field-group {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+          }
+
+          input, select {
+            padding: 8px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            font-size: 14px;
+            &:focus {
+              border-color: #13c2c2;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .btn-remove-medication {
+        background: #ff4d4f;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        &:hover { background: #ff7875; }
+      }
+    }
+
+    .no-medications {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      margin: 20px 0;
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+    .btn-cancel {
+      background: #f0f0f0;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 20px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      &:hover { background: #e0e0e0; }
+    }
+    .btn-submit {
+      background: #13c2c2;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 24px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(19,194,194,0.08);
+      transition: background 0.2s;
+      &:hover { background: #08979c; }
+    }
+  }
+}
+
+// Protocol medications suggestion styles
+.protocol-medications-suggestion {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  
+  h4 {
+    margin: 0 0 12px 0;
+    color: #389e0d;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .suggested-medications {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .suggested-medication {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #d9f7be;
+    border-radius: 6px;
+    
+    .med-name {
+      flex: 2;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .med-dosage, .med-frequency {
+      flex: 1;
+      color: #666;
+      font-size: 13px;
+    }
+    
+    .add-suggested-btn {
+      padding: 4px 12px;
+      background: #52c41a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover:not(:disabled) {
+        background: #389e0d;
+      }
+
+      &.disabled,
+      &:disabled {
+        background: #d9d9d9;
+        color: #999;
+        cursor: not-allowed;
+
+        &:hover {
+          background: #d9d9d9;
+        }
+      }
+    }
+  }
+}
+
+.medications-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  
+  .add-all-suggested-btn {
+    padding: 8px 16px;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+      background: #096dd9;
+    }
+
+    &.disabled,
+    &:disabled {
+      background: #d9d9d9;
+      color: #999;
+      cursor: not-allowed;
+
+      &:hover {
+        background: #d9d9d9;
+      }
+    }
+  }
+}
+
+// Responsive design for medication section
+@media (max-width: 768px) {
+  .add-treatment-plan-form {
+    .medications-section {
+      .medication-row {
+        .medication-fields {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+} 

@@ -1,0 +1,903 @@
+.arv-protocol-staff {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 32px 24px;
+  width: 96vw;
+  max-width: 1400px;
+  min-width: 0;
+  margin: 24px auto;
+  box-sizing: border-box;
+}
+
+.arv-protocol-staff__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.arv-protocol-staff__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.arv-protocol-staff__desc {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.arv-protocol-staff__tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+}
+
+.arv-protocol-staff__tab {
+  padding: 12px 32px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  transition: border 0.2s;
+}
+
+.arv-protocol-staff__tab.active {
+  border-bottom: 2px solid #1976d2;
+  color: #1976d2;
+}
+
+.arv-protocol-staff__search {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arv-protocol-staff__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.arv-protocol-staff__table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.arv-protocol-staff__table th, .arv-protocol-staff__table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.arv-protocol-staff__table th {
+  background: #f5f5f5;
+  font-weight: 700;
+}
+
+.arv-protocol-staff__badge {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #1976d2;
+  background: #e3f2fd;
+  margin-right: 8px;
+}
+
+.arv-protocol-staff__badge.alt {
+  color: #1976d2;
+  background: #e3f2fd;
+}
+
+.arv-protocol-staff__badge.primary {
+  color: #43a047;
+  background: #e8f5e9;
+}
+
+.arv-protocol-staff__badge.secondary {
+  color: #1976d2;
+  background: #e3f2fd;
+}
+
+.arv-protocol-staff__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.arv-protocol-staff__info-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+/* Cải thiện giao diện modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Thay đổi từ center thành flex-start */
+  padding: 20px;
+  padding-top: 40px; /* Thêm padding-top để tránh bị che */
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.arv-protocol-modal {
+  .arv-protocol-form-container {
+    width: 85vw !important; /* Giảm width một chút để dễ nhìn hơn */
+    min-width: 800px !important; /* Giảm min-width để responsive tốt hơn */
+    max-width: 1200px !important; /* Thêm max-width để không quá rộng */
+  }
+}
+
+/* Debugging - Add temporary borders to see layout */
+.modal-content-lg {
+  width: 85vw !important;
+  min-width: 800px !important;
+  max-width: 1200px !important;
+  height: 85vh !important; /* Tăng height cho dễ thấy scroll */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  margin-bottom: 40px;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 16px 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Ngăn header bị co lại */
+  
+  h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #1976d2;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    
+    &:hover {
+      color: #dc3545;
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .modal-content-lg {
+    width: 90vw !important;
+    min-width: 700px !important;
+  }
+  
+  .arv-protocol-modal {
+    .arv-protocol-form-container {
+      width: 90vw !important;
+      min-width: 700px !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+    padding-top: 20px;
+  }
+  
+  .modal-content-lg {
+    width: 95vw !important;
+    min-width: unset !important;
+    height: calc(95vh - 40px); /* Fixed height cho mobile */
+  }
+  
+  .arv-protocol-modal {
+    .arv-protocol-form-container {
+      width: 95vw !important;
+      min-width: unset !important;
+    }
+  }
+  
+  .modal-header {
+    padding: 12px 16px;
+    flex-shrink: 0; /* Đảm bảo header không bị co trên mobile */
+    
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .protocol-form-actions {
+    flex-shrink: 0; /* Đảm bảo footer không bị co trên mobile */
+  }
+}
+
+.protocol-form-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px;
+  background-color: #f9f3ff;
+  
+  /* Custom scrollbar */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+}
+
+.section-title {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.form-row {
+  display: block;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+/* Two-column layout for specific form rows */
+.form-row-two-cols {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  
+  .form-group {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+/* Responsive behavior for two-column layout */
+@media (max-width: 768px) {
+  .form-row-two-cols {
+    flex-direction: column;
+    gap: 0; /* Reset gap trên mobile */
+    
+    .form-group {
+      width: 100%;
+      margin-bottom: 16px; /* Thêm margin-bottom cho mobile */
+    }
+  }
+  
+  .protocol-info-section, .protocol-medications-section {
+    padding: 16px; /* Giảm padding trên mobile */
+  }
+  
+  .styled-input, .styled-select, .styled-textarea {
+    padding: 12px; /* Giảm padding trên mobile */
+    font-size: 16px; /* Tăng font-size để tránh zoom trên iOS */
+  }
+}
+
+.form-group {
+  margin-bottom: 16px; /* Tăng margin-bottom */
+  width: 100%;
+  
+  label {
+    display: block;
+    margin-bottom: 8px; /* Tăng margin cho label */
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    
+    .required {
+      color: #ff4d4f;
+    }
+  }
+}
+
+.styled-input, .styled-select, .styled-textarea {
+  width: 100%;
+  padding: 12px 16px; /* Tăng padding */
+  border: 1px solid #d9d9d9;
+  border-radius: 8px; /* Tăng border-radius */
+  font-size: 14px;
+  transition: all 0.3s;
+  background-color: #fff;
+  
+  &:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+    outline: none;
+  }
+  
+  &::placeholder {
+    color: #999;
+    font-style: italic;
+  }
+}
+
+.styled-textarea {
+  resize: vertical;
+  min-height: 120px;
+  width: 100%;
+}
+
+.styled-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.5L1.5 4 2.5 3 6 6.5 9.5 3 10.5 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center; /* Đồng nhất với padding của input */
+  padding-right: 40px; /* Tăng padding để có space cho arrow icon */
+  cursor: pointer;
+  
+  &:hover {
+    border-color: #1976d2;
+  }
+}
+
+.protocol-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 0; /* Bỏ margin-top */
+  padding: 16px 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  width: 100%;
+  flex-shrink: 0; /* Ngăn footer bị co lại */
+  
+  .cancel-button {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 120px;
+    
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+  
+  .save-button {
+    background-color: #1976d2;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 120px;
+    
+    &:hover {
+      background-color: #1565c0;
+    }
+  }
+}
+
+/* Styles for medication management */
+.medication-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* Cải thiện scroll cho form content */
+.service-form {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 120vh; /* Tăng height để đảm bảo có scroll */
+  background-color: #f9f3ff;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Đảm bảo content area scroll properly */
+.protocol-info-section, .protocol-medications-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  width: 100%;
+  margin-bottom: 20px;
+  flex-shrink: 0; /* Ngăn các section bị co lại */
+  
+  &:last-child {
+    margin-bottom: 0; /* Bỏ margin-bottom cho phần tử cuối */
+  }
+}
+
+.add-medication {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  
+  select {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+  }
+  
+  .add-medication-button {
+    padding: 10px 16px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      background-color: #1565c0;
+    }
+  }
+}
+
+.medications-list {
+  width: 100%;
+}
+
+.medication-card {
+  background-color: #f9f3ff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  border: 1px solid #e6d5f7;
+
+  .medication-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+
+    .medication-number {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #8e24aa;
+    }
+
+    .remove-button {
+      background: none;
+      border: none;
+      color: #d32f2f;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      
+      &:hover {
+        background-color: rgba(211, 47, 47, 0.1);
+      }
+    }
+  }
+
+  .medication-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .medication-form-group {
+      flex: 1;
+      min-width: 200px;
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      input, textarea, select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #d9d9d9;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s;
+        
+        &:focus {
+          border-color: #8e24aa;
+          box-shadow: 0 0 0 2px rgba(142, 36, 170, 0.2);
+          outline: none;
+        }
+      }
+
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+    }
+  }
+}
+
+.medications-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  
+  th, td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: top;
+    word-break: break-word;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .medication-name {
+    font-weight: 500;
+    color: #1976d2;
+  }
+  
+  .medication-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    height: auto;
+    min-height: 40px;
+    
+    &:focus {
+      border-color: #1976d2;
+      outline: none;
+    }
+  }
+  
+  .remove-medication-button {
+    background-color: transparent;
+    border: none;
+    color: #ff4d4f;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    
+    &:hover {
+      background-color: rgba(255, 77, 79, 0.1);
+      color: #d9363e; // Darker version of #ff4d4f (equivalent to darken(#ff4d4f, 10%))
+    }
+  }
+}
+
+.no-medications {
+  padding: 24px;
+  text-align: center;
+  color: #666;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  
+  p {
+    margin: 6px 0;
+    
+    &:first-child {
+      font-weight: 500;
+    }
+  }
+}
+
+/* Chi tiết phác đồ */
+.protocol-detail-container {
+  padding: 20px;
+}
+
+.protocol-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.protocol-name-section {
+  h2 {
+    font-size: 1.8rem;
+    margin: 0 0 12px;
+    color: #1976d2;
+  }
+}
+
+.protocol-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.protocol-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  
+  &.priority {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  &.alternative {
+    background-color: #fff8e1;
+    color: #ff8f00;
+  }
+  
+  &.active {
+    background-color: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  &.inactive {
+    background-color: #f5f5f5;
+    color: #757575;
+  }
+}
+
+.protocol-detail-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-detail-button, .delete-detail-button, .restore-detail-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-detail-button {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  
+  &:hover {
+    background-color: #bbdefb;
+  }
+}
+
+.delete-detail-button {
+  background-color: #ffebee;
+  color: #d32f2f;
+  
+  &:hover {
+    background-color: #ffcdd2;
+  }
+}
+
+.restore-detail-button {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  
+  &:hover {
+    background-color: #c8e6c9;
+  }
+}
+
+.protocol-info-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.protocol-medications-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.detail-section-title {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.protocol-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.info-item {
+  &.full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+.info-label {
+  font-weight: 500;
+  color: #757575;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.info-value {
+  color: #333;
+  line-height: 1.5;
+}
+
+.detail-medications-table {
+  width: 100%;
+  min-width: 800px; /* Ensure minimum width for proper display */
+  border-collapse: collapse;
+  table-layout: auto !important; /* Let table auto-size columns based on content */
+  
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    word-wrap: break-word !important; /* Allow text wrapping */
+    word-break: break-word !important; /* Break long words */
+    white-space: normal !important; /* Allow text to wrap */
+    vertical-align: top; /* Align text to top for better readability */
+    overflow: visible !important; /* Allow text to be visible */
+    line-height: 1.4; /* Better line spacing for readability */
+    text-overflow: unset !important; /* Remove any ellipsis */
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap; /* Keep headers on one line */
+  }
+  
+  /* Define specific column widths for better text display */
+  th:nth-child(1), td:nth-child(1) { /* Tên thuốc */
+    width: 35% !important; /* Increased from 30% to show full medication names */
+    min-width: 280px !important; /* Increased from 220px for longer medication names */
+    max-width: none !important; /* Remove any max-width constraints */
+  }
+  
+  th:nth-child(2), td:nth-child(2) { /* Liều lượng */
+    width: 15% !important;
+    min-width: 100px !important; /* Slightly reduced */
+  }
+  
+  th:nth-child(3), td:nth-child(3) { /* Tần suất */
+    width: 15% !important;
+    min-width: 100px !important; /* Slightly reduced */
+  }
+  
+  th:nth-child(4), td:nth-child(4) { /* Thời gian */
+    width: 8% !important; /* Further reduced from 10% */
+    min-width: 70px !important; /* Further reduced from 80px */
+  }
+  
+  th:nth-child(5), td:nth-child(5) { /* Tác dụng phụ */
+    width: 14% !important; /* Slightly reduced from 15% */
+    min-width: 130px !important; /* Slightly reduced */
+  }
+  
+  th:nth-child(6), td:nth-child(6) { /* Ghi chú */
+    width: 13% !important; /* Slightly reduced from 15% */
+    min-width: 130px !important; /* Slightly reduced */
+  }
+  
+  .med-name {
+    font-weight: 500;
+    color: #1976d2;
+    display: block; /* Ensure proper text wrapping */
+    min-width: 300px !important; /* Force minimum width */
+    width: auto !important; /* Allow natural width */
+    white-space: normal !important; /* Ensure text wraps */
+    overflow: visible !important; /* Ensure text is visible */
+    text-overflow: unset !important; /* Remove ellipsis */
+  }
+  
+  /* Add hover effects for better user experience */
+  td {
+    cursor: help; /* Show help cursor to indicate tooltip */
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+  
+  /* Better styling for tooltips */
+  td[title] {
+    position: relative;
+  }
+}
+
+.no-medications-detail {
+  padding: 24px;
+  text-align: center;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.close-detail-button {
+  padding: 10px 24px;
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}

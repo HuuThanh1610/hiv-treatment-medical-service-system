@@ -1,0 +1,62 @@
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+target/
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+.factorypath
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Spring Boot
+application-*.properties
+!application.properties
+!application-example.properties
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock 

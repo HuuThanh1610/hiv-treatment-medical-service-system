@@ -1,0 +1,555 @@
+// Custom pregnancy checkbox
+.pregnancy-checkbox-custom {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #fff6f6;
+  border: 2px solid #ffb3b3;
+  border-radius: 12px;
+  padding: 18px 24px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  width: 100%;
+
+  input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .custom-checkmark {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2.5px solid #ff6b6b;
+    background: #fff;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border 0.2s;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked + .custom-checkmark {
+    background: #fff;
+    border-color: #ffb3b3;
+  }
+  input[type="checkbox"]:checked + .custom-checkmark::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff6b6b;
+    margin: auto;
+  }
+}
+
+.form-group.checkbox-group {
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-section .form-group.checkbox-group .pregnancy-checkbox-custom {
+  width: 100%;
+  min-width: 0;
+}
+.appointment-declaration-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.appointment-declaration-modal {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+    
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.declaration-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    text-align: center;
+    
+    h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        
+        svg {
+            color: #ff6b6b;
+        }
+    }
+    
+    p {
+        margin: 0;
+        opacity: 0.9;
+        font-size: 1.05rem;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        svg {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.declaration-form {
+    padding: 30px;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-section {
+    &.emergency-section {
+        background: #f8f9ff;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+        
+        h3 {
+            margin: 0 0 20px 0;
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    label {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        svg {
+            font-size: 1rem;
+            color: #667eea;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+    }
+    
+    input, textarea {
+        padding: 12px 16px;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        
+        &:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        &.error {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+        
+        &::placeholder {
+            color: #95a5a6;
+        }
+    }
+    
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+}
+
+.checkbox-group {
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        font-weight: 500;
+        color: #2c3e50;
+        padding: 12px 16px;
+        background: #fff5f5;
+        border: 2px solid #ffebee;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: #ffeaea;
+            border-color: #ffcdd2;
+        }
+        
+        input[type="checkbox"] {
+            display: none;
+        }
+        
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e74c3c;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+            
+            &::after {
+                content: '✓';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                color: white;
+                font-weight: bold;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+        }
+        
+        input[type="checkbox"]:checked + .checkmark {
+            background: #e74c3c;
+            border-color: #e74c3c;
+            
+            &::after {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e1e8ed;
+    
+    button {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 120px;
+        
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+    
+    .cancel-btn {
+        background: #f8f9fa;
+        color: #6c757d;
+        border: 2px solid #e9ecef;
+        
+        &:hover:not(:disabled) {
+            background: #e9ecef;
+            border-color: #dee2e6;
+        }
+    }
+    
+    .submit-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+    }
+}
+
+.declaration-note {
+    background: #f8f9ff;
+    padding: 20px 30px;
+    border-radius: 0 0 16px 16px;
+    border-top: 1px solid #e1e8ed;
+    
+    p {
+        margin: 0;
+        color: #6c757d;
+        font-size: 0.9rem;
+        text-align: center;
+        
+        strong {
+            color: #495057;
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .appointment-declaration-overlay {
+        padding: 10px;
+    }
+    
+    .appointment-declaration-modal {
+        max-height: 95vh;
+    }
+    
+    .declaration-header {
+        padding: 20px;
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            font-size: 0.95rem;
+        }
+    }
+    
+    .declaration-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        
+        button {
+            width: 100%;
+        }
+    }
+}
+
+// Pregnancy Confirmation Modal Styles
+.pregnancy-confirm-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 4000; // Higher than declaration form
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pregnancy-confirm-modal {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+    
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.pregnancy-confirm-header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    text-align: center;
+    
+    h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+.pregnancy-confirm-content {
+    padding: 30px;
+    text-align: center;
+    
+    .pregnancy-icon {
+        font-size: 3rem;
+        color: #ff6b6b;
+        margin-bottom: 20px;
+        display: block;
+    }
+    
+    p {
+        margin: 0 0 15px 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+        
+        &.note {
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
+}
+
+.pregnancy-confirm-actions {
+    padding: 0 30px 30px 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    
+    .pregnancy-btn {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &.no-btn {
+            background: #f8f9fa;
+            color: #495057;
+            
+            &:hover {
+                background: #e9ecef;
+                transform: translateY(-2px);
+            }
+        }
+        
+        &.yes-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            
+            &:hover {
+                background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%);
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .pregnancy-confirm-modal {
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .pregnancy-confirm-content {
+        padding: 20px;
+        
+        .pregnancy-icon {
+            font-size: 2.5rem;
+        }
+    }
+    
+    .pregnancy-confirm-actions {
+        padding: 0 20px 20px 20px;
+        flex-direction: column;
+        
+        .pregnancy-btn {
+            width: 100%;
+        }
+    }
+}

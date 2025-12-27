@@ -1,0 +1,35 @@
+.manager-slidebar {
+    width: 220px;
+    background: #f4f7fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 24px 0;
+}
+
+.manager-slidebar__title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2a4d69;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.manager-slidebar__menu {
+    list-style: none;
+    padding: 0 18px;
+    margin: 0;
+}
+
+.manager-slidebar__item {
+    padding: 12px 10px;
+    border-radius: 6px;
+    color: #355c7d;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.manager-slidebar__item:hover {
+    background: #e0eafc;
+    color: #1a2a3a;
+}

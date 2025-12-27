@@ -1,0 +1,43 @@
+.mission-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .value-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+
+        .value-icon {
+            font-size: 1.8rem;
+            color: #7363aa;
+            flex-shrink: 0;
+        }
+
+        .value-content h4 {
+            margin: 0;
+        }
+    }
+}
+
+.section-tag {
+    margin-bottom: 1.2rem;
+
+    .section-label {
+        display: inline-block;
+        font-size: 0.85rem;
+        background-color: #eee;
+        color: #333;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #111;
+        margin: 0;
+    }
+}

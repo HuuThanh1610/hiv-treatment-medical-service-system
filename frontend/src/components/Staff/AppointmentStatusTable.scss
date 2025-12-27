@@ -1,0 +1,158 @@
+.appointment-status-table {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.table-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 260px;
+    margin-left: 1rem;
+}
+
+.appointment-status-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+    /* Optional: Uncomment the next line if you want an outer border */
+    /* border: 1px solid #e0e0e0; */
+}
+
+.appointment-status-table th,
+.appointment-status-table td {
+    padding: 0.75rem 1rem;
+    border: none; /* Remove all column borders */
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.appointment-status-table th {
+    background: #f5f5f5;
+}
+
+.appointment-status-table th:nth-child(6),
+.appointment-status-table td:nth-child(6) {
+    min-width: 120px;
+    width: 120px;
+}
+
+.appointment-status-table th:nth-child(7),
+.appointment-status-table td:nth-child(7) {
+    min-width: 160px;
+    width: 160px;
+}
+
+.status-badge {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.status-badge.upcoming {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-badge.ongoing {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.status-badge.completed {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.status-badge.finished {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.status-badge.canceled {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.status-badge.pending {
+    background: #f2f2f2;
+    color: #444;
+    border: 1.5px solid #e0e0e0;
+    font-weight: 500;
+    box-shadow: none;
+}
+
+.status-badge.checked-in {
+    background: #e8f5e8;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.status-badge.no-show {
+    background: #ffebee;
+    color: #c62828;
+    font-weight: 600;
+}
+
+.status-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    background: #fff;
+    cursor: pointer;
+    min-width: 140px;
+    width: 100%;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.status-select:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.view-btn {
+    background: #2196F3;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-btn:hover {
+    background: #1976D2;
+}

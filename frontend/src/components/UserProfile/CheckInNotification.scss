@@ -1,0 +1,122 @@
+.checkin-notification-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    color: white;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.checkin-notification-header {
+    text-align: center;
+    margin-bottom: 24px;
+
+    h3 {
+        margin: 0 0 8px 0;
+        font-size: 24px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    p {
+        margin: 0;
+        font-size: 16px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+}
+
+.checkin-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    // Override CheckInStatusCard styles trong notification
+    .checkin-status-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #333;
+
+        &.success {
+            background: linear-gradient(135deg, rgba(240, 255, 244, 0.95) 0%, rgba(230, 255, 250, 0.95) 100%);
+        }
+
+        &.warning {
+            background: linear-gradient(135deg, rgba(255, 251, 240, 0.95) 0%, rgba(254, 247, 224, 0.95) 100%);
+        }
+
+        &.error {
+            background: linear-gradient(135deg, rgba(255, 245, 245, 0.95) 0%, rgba(254, 215, 215, 0.95) 100%);
+        }
+
+        &.info {
+            background: linear-gradient(135deg, rgba(240, 249, 255, 0.95) 0%, rgba(224, 242, 254, 0.95) 100%);
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .checkin-notification-container {
+        margin: 16px 0;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .checkin-notification-header {
+        h3 {
+            font-size: 20px;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+// Animation cho container
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.checkin-notification-container {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+// Pulse animation cho urgent check-ins
+@keyframes pulse {
+    0% {
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.6);
+    }
+    100% {
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    }
+}
+
+.checkin-notification-container.urgent {
+    animation: pulse 2s infinite;
+}

@@ -1,0 +1,248 @@
+.lab-results-table {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.table-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 260px;
+    margin-left: 1rem;
+}
+
+.lab-results-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+    /* Optional: Uncomment the next line if you want an outer border */
+    /* border: 1px solid #e0e0e0; */
+}
+
+.lab-results-table th,
+.lab-results-table td {
+    padding: 0.75rem 1rem;
+    border: none; /* Remove all column borders */
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lab-results-table th {
+    background: #f5f5f5;
+}
+
+.doctor-note {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.no-note {
+    color: #999;
+    font-style: italic;
+    font-size: 0.875rem;
+}
+
+.add-btn {
+    background: #2196F3;
+    color: #fff;
+    border: none;
+    // padding: 0.4rem 0.8rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.download-btn {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-btn:hover {
+    background: #1976D2;
+}
+
+.download-btn:hover {
+    background: #388e3c;
+}
+
+// Modal styles
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+
+    h3 {
+        margin: 0;
+        color: #333;
+        font-size: 1.25rem;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #666;
+        padding: 4px;
+
+        &:hover {
+            color: #333;
+        }
+    }
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.patient-info {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+
+    h4 {
+        margin: 0 0 12px 0;
+        color: #495057;
+        font-size: 1rem;
+    }
+
+    p {
+        margin: 6px 0;
+        color: #6c757d;
+
+        strong {
+            color: #495057;
+        }
+    }
+}
+
+.test-results {
+    h4 {
+        margin: 0 0 16px 0;
+        color: #495057;
+        font-size: 1rem;
+    }
+}
+
+.results-list {
+    .result-item {
+        padding: 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-bottom: 12px;
+
+        .test-name {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .test-result {
+            margin-bottom: 8px;
+
+            .result-value {
+                color: #28a745;
+                font-weight: 500;
+                margin-right: 8px;
+            }
+
+            .result-date {
+                color: #6c757d;
+                font-size: 0.9rem;
+            }
+        }
+
+        .test-notes {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-style: italic;
+
+            strong {
+                color: #495057;
+                font-style: normal;
+            }
+        }
+    }
+}
+
+.no-results {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 20px;
+}
+
+// Fix button visibility
+.detail-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+
+    &:hover {
+        background: #5a6268;
+    }
+}

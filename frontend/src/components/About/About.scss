@@ -1,0 +1,444 @@
+.about-page {
+  min-height: 100vh;
+}
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    .stat-item {
+      text-align: center;
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        opacity: 0.8;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+// History Section
+.history-section {
+  background-color: #f9f9fb;
+  padding: 5rem 1rem;
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 1rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #dcdcdc;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 2rem 2rem;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      &:nth-child(even) {
+        left: 50%;
+        align-items: flex-start;
+
+        .timeline-box {
+          text-align: left;
+        }
+      }
+
+      &:nth-child(odd) {
+        left: 0;
+        align-items: flex-end;
+
+        .timeline-box {
+          text-align: right;
+        }
+      }
+
+      .timeline-icon {
+        background-color: #667eea;
+        color: #fff;
+        border-radius: 50%;
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 0 4px #fff, 0 0 0 6px #667eea3b;
+      }
+
+      .timeline-box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+        position: relative;
+        width: 100%;
+      }
+
+      .timeline-year {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 0.95rem;
+        color: #667eea;
+        margin-bottom: 0.3rem;
+      }
+
+      .timeline-title {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .timeline-description {
+        color: #555;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        align-items: flex-start;
+
+        .timeline-box {
+          text-align: left !important;
+        }
+      }
+
+      &::before {
+        left: 20px;
+      }
+    }
+  }
+}
+
+
+// Team Section
+.team-section {
+  padding: 5rem 0;
+  background: white;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .team-image {
+        margin-bottom: 1.5rem;
+
+        .placeholder-image {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          color: white;
+          font-size: 2rem;
+          font-weight: 600;
+        }
+      }
+
+      .team-info {
+        h3 {
+          font-size: 1.3rem;
+          color: #333;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+        }
+
+        h4 {
+          color: #667eea;
+          margin-bottom: 1rem;
+          font-weight: 500;
+        }
+
+        p {
+          color: #666;
+          line-height: 1.6;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+}
+
+// Mission Section
+.mission-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+
+.mission-intro-section {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.mission-intro,
+.mission-vision-list {
+  flex: 1;
+  min-width: 300px;
+}
+
+.mission-values {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.value-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.value-icon {
+  font-size: 1.8rem;
+  color: #7363aa;
+  flex-shrink: 0;
+}
+
+.value-content h4 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.value-content p {
+  margin: 0.3rem 0 0;
+  color: #555;
+}
+
+.mission-vision {
+  text-align: left;
+  margin-top: 60px;
+}
+
+.mission-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.mission-card {
+  flex: 1;
+  min-width: 260px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.mission-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.mission-card p,
+.mission-card ul {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.mission-card ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .mission-intro-section {
+    flex-direction: column;
+  }
+
+  .mission-cards {
+    flex-direction: column;
+  }
+
+  .mission-card {
+    width: 100%;
+  }
+}
+
+
+
+
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .history-section,
+  .team-section,
+  .mission-section {
+    padding: 3rem 0;
+
+    .section-header h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

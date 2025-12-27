@@ -1,0 +1,225 @@
+/* Lab Request Modal Redesign */
+.lab-request-modal {
+  min-width: 380px;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  padding: 40px 36px 32px 36px;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+.lab-request-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.lab-request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lab-request-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.urgent-row {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.urgent-label {
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.urgent-icon {
+  color: #ff9800;
+  margin-left: 6px;
+  font-size: 1.2em;
+}
+
+.testtype-row {
+  flex-direction: row !important;
+  gap: 8px;
+  align-items: center;
+}
+
+.testtype-note-input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 8px;
+  border: 1.5px solid #bcd3f7;
+  padding: 8px 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.testtype-note-input:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+
+.testtype-add-btn {
+  background: linear-gradient(90deg, #1a73e8, #38bdf8);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.testtype-add-btn:disabled {
+  background: #bcd3f7;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.testtype-add-btn:hover:not(:disabled) {
+  background: #1557b0;
+}
+
+.selected-testtypes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.selected-test-type-chip {
+  background: #e3f0fd;
+  color: #1976d2;
+  border-radius: 18px;
+  padding: 7px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px #0001;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.chip-type-name {
+  font-weight: 600;
+}
+
+.chip-note-input {
+  margin-left: 8px;
+  font-size: 13px;
+  border: none;
+  background: transparent;
+  border-bottom: 1.5px solid #bcd3f7;
+  outline: none;
+  min-width: 60px;
+  padding: 2px 4px;
+  transition: border-color 0.2s;
+}
+
+.chip-note-input:focus {
+  border-color: #1a73e8;
+}
+
+.chip-remove-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 2px;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.18s;
+}
+
+.chip-remove-btn:hover {
+  color: #d32f2f;
+}
+
+.empty-chip {
+  color: #bbb;
+  font-style: italic;
+  font-size: 1rem;
+  padding: 8px 0 0 2px;
+}
+
+.alert.success {
+  background: #e6f9ed;
+  color: #219653;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alert.error {
+  background: #ffeaea;
+  color: #d32f2f;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.save-button {
+  background: linear-gradient(90deg, #1a73e8, #38bdf8);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.save-button:disabled {
+  background: #bcd3f7;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.save-button:hover:not(:disabled) {
+  background: #1557b0;
+}
+
+.cancel-button {
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.cancel-button:hover {
+  background: #e0e0e0;
+}

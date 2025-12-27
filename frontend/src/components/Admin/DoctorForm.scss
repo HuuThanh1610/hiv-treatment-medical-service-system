@@ -1,0 +1,147 @@
+.form-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 800px;
+    max-width: 95%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-family: sans-serif;
+
+    h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    form {
+        .form-section {
+            margin-bottom: 2rem;
+
+            legend {
+                font-weight: 600;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 260px;
+            margin-bottom: 1.25rem;
+
+            label {
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+            }
+
+            input,
+            select,
+            textarea {
+                padding: 0.75rem;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 1rem;
+
+                &::placeholder {
+                    color: #aaa;
+                }
+
+                &:focus {
+                    border-color: #1976d2;
+                    outline: none;
+                }
+            }
+
+            input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                accent-color: #1976d2; // Màu khi được chọn
+                background-color: white; // Nền mặc định
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:checked {
+                    background-color: #1976d2;
+                    border-color: #1976d2;
+                }
+
+                &:checked::after {
+                    content: '✔';
+                    color: white;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 0;
+                    left: 3px;
+                }
+            }
+        }
+
+        .form-group.full-width {
+            width: 100%;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+
+            button {
+                padding: 0.75rem 1.5rem;
+                border: none;
+                border-radius: 4px;
+                font-weight: bold;
+                cursor: pointer;
+
+                &:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+
+                &:first-child {
+                    background-color: #1976d2;
+                    color: white;
+                }
+
+                &:last-child {
+                    background-color: #eee;
+                    color: #333;
+                }
+            }
+        }
+
+        .error-message {
+            background-color: #fdecea;
+            color: #b71c1c;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+    }
+}
